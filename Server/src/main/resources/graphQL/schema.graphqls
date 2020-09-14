@@ -1,0 +1,34 @@
+type Query{
+    stock(symbol: String): Stock
+}
+
+type Stock {
+    symbol: String!
+    type: String!
+    priceHistory: [AssetValue]
+    trendHistory: [Sequence]
+    test: String
+}
+
+type AssetValue {
+    open: Float
+    high: Float
+    low: Float
+    close: Float
+    at: String
+}
+
+type Sequence {
+    ATH: Float!
+    ATL: Float!
+    type: String!
+    delta: Float!
+    relativeDelta: Float!
+    start: String
+    end: String
+    priceHistory: [AssetValue]
+}
+
+schema {
+    query: Query
+}
